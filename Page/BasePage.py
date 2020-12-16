@@ -1,5 +1,4 @@
 from selenium.webdriver import ActionChains
-from Driver.DriverWrapper import DriverWrapper
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -9,14 +8,18 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class BasePage:
 
-    def __init__(self):
+    def __init__(self, driver):
         wait_time_out = 10
-        self.driver = DriverWrapper().getDriver()
+        self.driver = driver
         self.webDriverWait = WebDriverWait(self.driver, wait_time_out)
 
     def getTitle(self, title):
         self.webDriverWait.until(EC.title_is(title))
         return self.driver.title
+
+    def isURLValid(self, URLText):
+        isURLValid = self.webDriverWait.until(EC.url_contains(URLText))
+        return isURLValid
 
     def sendText(self, locator, text):
         self.webDriverWait.until(EC.visibility_of_element_located(locator)).clear()

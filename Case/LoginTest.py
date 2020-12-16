@@ -1,4 +1,6 @@
-from Testcase.BaseTest import BaseTest
+import sys
+sys.path.append('/Users/silviaho/PycharmProjects/SampleProject2/')
+from Case.BaseTest import BaseTest
 from Page.LoginPage import LoginPage
 from Page.DashboardPage import DashboardPage
 import pytest

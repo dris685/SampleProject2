@@ -1,6 +1,6 @@
 from Page.BasePage import BasePage
 from Locator.LoginLocator import LoginLocator
-from Testdata.LoginData import LoginData
+from Data.LoginData import LoginData
 
 
 class LoginPage(BasePage):
